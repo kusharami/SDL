@@ -49,8 +49,14 @@ LOCAL_SRC_FILES := \
 	$(wildcard $(LOCAL_PATH)/src/video/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/video/android/*.c) \
     $(wildcard $(LOCAL_PATH)/src/test/*.c))
+		
+LOCAL_SRC_FILES += $(subst $(LOCAL_PATH)/,,$(LOCAL_PATH)/src/video/SDL_pixel_formats.cpp)
 
 LOCAL_CFLAGS += -DGL_GLEXT_PROTOTYPES
+
+ifeq (1, $(SDL_THREAD_SAFE))
+LOCAL_CFLAGS += -DSDL_THREAD_SAFE
+endif
 
 ifeq (1, $(MY_MALLOC))
 LOCAL_CFLAGS += -DMY_MALLOC

@@ -482,41 +482,6 @@ SDL_MasksToPixelFormatEnum(int bpp, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask,
     return SDL_PIXELFORMAT_UNKNOWN;
 }
 
-static SDL_PixelFormat *formats;
-
-SDL_PixelFormat *
-SDL_AllocFormat(Uint32 pixel_format)
-{
-    SDL_PixelFormat *format;
-
-    /* Look it up in our list of previously allocated formats */
-    for (format = formats; format; format = format->next) {
-        if (pixel_format == format->format) {
-            ++format->refcount;
-            return format;
-        }
-    }
-
-    /* Allocate an empty pixel format structure, and initialize it */
-    format = SDL_malloc(sizeof(*format));
-    if (format == NULL) {
-        SDL_OutOfMemory();
-        return NULL;
-    }
-    if (SDL_InitFormat(format, pixel_format) < 0) {
-        SDL_free(format);
-        SDL_InvalidParamError("format");
-        return NULL;
-    }
-
-    if (!SDL_ISPIXELFORMAT_INDEXED(pixel_format)) {
-        /* Cache the RGB formats */
-        format->next = formats;
-        formats = format;
-    }
-    return format;
-}
-
 int
 SDL_InitFormat(SDL_PixelFormat * format, Uint32 pixel_format)
 {
@@ -580,37 +545,6 @@ SDL_InitFormat(SDL_PixelFormat * format, Uint32 pixel_format)
     format->next = NULL;
 
     return 0;
-}
-
-void
-SDL_FreeFormat(SDL_PixelFormat *format)
-{
-    SDL_PixelFormat *prev;
-
-    if (!format) {
-        SDL_InvalidParamError("format");
-        return;
-    }
-    if (--format->refcount > 0) {
-        return;
-    }
-
-    /* Remove this format from our list */
-    if (format == formats) {
-        formats = format->next;
-    } else if (formats) {
-        for (prev = formats; prev->next; prev = prev->next) {
-            if (prev->next == format) {
-                prev->next = format->next;
-                break;
-            }
-        }
-    }
-
-    if (format->palette) {
-        SDL_FreePalette(format->palette);
-    }
-    SDL_free(format);
 }
 
 SDL_Palette *
