@@ -31,6 +31,35 @@
 
 #if defined(HAVE_MALLOC)
 
+#if defined (MY_MALLOC)
+
+extern void *my_malloc(size_t size);
+extern void *my_calloc(size_t nmemb, size_t size);
+extern void *my_realloc(void *ptr, size_t size);
+extern void my_free(void *ptr);
+
+void *SDL_malloc(size_t size)
+{
+    return my_malloc(size);
+}
+
+void *SDL_calloc(size_t nmemb, size_t size)
+{
+    return my_calloc(nmemb, size);
+}
+
+void *SDL_realloc(void *ptr, size_t size)
+{
+    return my_realloc(ptr, size);
+}
+
+void SDL_free(void *ptr)
+{
+    my_free(ptr);
+}
+
+#else
+
 void *SDL_malloc(size_t size)
 {
     return malloc(size);
@@ -50,6 +79,8 @@ void SDL_free(void *ptr)
 {
     free(ptr);
 }
+
+#endif // MY_MALLOC
 
 #else  /* the rest of this is a LOT of tapdancing to implement malloc. :) */
 
