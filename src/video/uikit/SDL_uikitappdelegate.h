@@ -21,11 +21,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SDLUIKitDelegate : NSObject<UIApplicationDelegate> {
+@interface SDLUIKitDelegate : UIResponder<UIApplicationDelegate> {
 }
 
 + (id) sharedAppDelegate;
 + (NSString *)getAppDelegateClassName;
+
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 
