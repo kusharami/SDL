@@ -18,6 +18,9 @@
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 */
+#include "../../SDL_internal.h"
+
+#if SDL_JOYSTICK_PSP
 
 /* This is the PSP implementation of the SDL joystick API */
 #include <pspctrl.h>
@@ -261,6 +264,8 @@ SDL_JoystickGUID SDL_SYS_JoystickGetGUID(SDL_Joystick * joystick)
     SDL_memcpy( &guid, name, SDL_min( sizeof(guid), SDL_strlen( name ) ) );
     return guid;
 }
+
+#endif /* SDL_JOYSTICK_PSP */
 
 /* vim: ts=4 sw=4
  */
