@@ -143,6 +143,7 @@
 		AABCC3941640643D00AB8930 /* SDL_uikitmessagebox.h in Headers */ = {isa = PBXBuildFile; fileRef = AABCC3921640643D00AB8930 /* SDL_uikitmessagebox.h */; };
 		AABCC3951640643D00AB8930 /* SDL_uikitmessagebox.m in Sources */ = {isa = PBXBuildFile; fileRef = AABCC3931640643D00AB8930 /* SDL_uikitmessagebox.m */; };
 		AADA5B8F16CCAB7C00107CF7 /* SDL_bits.h in Headers */ = {isa = PBXBuildFile; fileRef = AADA5B8E16CCAB7C00107CF7 /* SDL_bits.h */; };
+		B2155BB41AC2A571006B6383 /* SDL_pixel_formats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2155BB31AC2A571006B6383 /* SDL_pixel_formats.cpp */; };
 		FD3F4A760DEA620800C5B771 /* SDL_getenv.c in Sources */ = {isa = PBXBuildFile; fileRef = FD3F4A700DEA620800C5B771 /* SDL_getenv.c */; };
 		FD3F4A770DEA620800C5B771 /* SDL_iconv.c in Sources */ = {isa = PBXBuildFile; fileRef = FD3F4A710DEA620800C5B771 /* SDL_iconv.c */; };
 		FD3F4A780DEA620800C5B771 /* SDL_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = FD3F4A720DEA620800C5B771 /* SDL_malloc.c */; };
@@ -339,6 +340,7 @@
 		AABCC3921640643D00AB8930 /* SDL_uikitmessagebox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitmessagebox.h; sourceTree = "<group>"; };
 		AABCC3931640643D00AB8930 /* SDL_uikitmessagebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitmessagebox.m; sourceTree = "<group>"; };
 		AADA5B8E16CCAB7C00107CF7 /* SDL_bits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_bits.h; sourceTree = "<group>"; };
+		B2155BB31AC2A571006B6383 /* SDL_pixel_formats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SDL_pixel_formats.cpp; sourceTree = "<group>"; };
 		FD0BBFEF0E3933DD00D833B1 /* SDL_uikitview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitview.h; sourceTree = "<group>"; };
 		FD3F4A700DEA620800C5B771 /* SDL_getenv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_getenv.c; sourceTree = "<group>"; };
 		FD3F4A710DEA620800C5B771 /* SDL_iconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_iconv.c; sourceTree = "<group>"; };
@@ -904,6 +906,7 @@
 		FDA682420DF2374D00F98A1A /* video */ = {
 			isa = PBXGroup;
 			children = (
+				B2155BB31AC2A571006B6383 /* SDL_pixel_formats.cpp */,
 				FD689F090E26E5D900F90B21 /* uikit */,
 				FDA685F40DF244C800F98A1A /* dummy */,
 				FDA683000DF2374E00F98A1A /* SDL_blit.c */,
@@ -1192,6 +1195,7 @@
 				006E9889119552DD001DE610 /* SDL_rwopsbundlesupport.m in Sources */,
 				044E5FB811E606EB0076F181 /* SDL_clipboard.c in Sources */,
 				0420497111E6F03D007E7EC9 /* SDL_clipboardevents.c in Sources */,
+				B2155BB41AC2A571006B6383 /* SDL_pixel_formats.cpp in Sources */,
 				04BA9D6411EF474A00B60E01 /* SDL_gesture.c in Sources */,
 				04BA9D6611EF474A00B60E01 /* SDL_touch.c in Sources */,
 				04FFAB8B12E23B8D00BA343D /* SDL_atomic.c in Sources */,
@@ -1253,7 +1257,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1262,10 +1266,10 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1275,7 +1279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = SDL2;
 				SKIP_INSTALL = NO;
 			};
@@ -1285,7 +1289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = SDL2;
 				SKIP_INSTALL = NO;
 			};
