@@ -49,7 +49,8 @@
    into the app itself.  In XAML apps, the function, SDL_WinRTRunApp must be
    called, with a pointer to the Direct3D-hosted XAML control passed in.
 */
-#define SDL_MAIN_NEEDED
+#undef SDL_MAIN_NEEDED
+#undef SDL_MAIN_AVAILABLE
 
 #elif defined(__IPHONEOS__)
 /* On iOS SDL provides a main function that creates an application delegate

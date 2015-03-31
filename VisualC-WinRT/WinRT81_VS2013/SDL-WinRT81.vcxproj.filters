@@ -713,5 +713,8 @@
     <ClCompile Include="..\..\src\haptic\windows\SDL_windowshaptic.c" />
     <ClCompile Include="..\..\src\haptic\windows\SDL_xinputhaptic.c" />
     <ClCompile Include="..\..\src\haptic\windows\SDL_dinputhaptic.c" />
+    <ClCompile Include="..\..\src\video\SDL_pixel_formats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
